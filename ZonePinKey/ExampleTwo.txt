@@ -1,0 +1,33 @@
+﻿using crypto;
+using System.Diagnostics;
+using System.Net.NetworkInformation;
+
+Yes, exactly! Both the source and the destination use the same ZPK to encrypt and decrypt the data. Here's a more detailed explanation:
+At the Source (e.g., ATM or POS Terminal):
+
+    PIN Entry: The user enters their PIN.
+    Encryption: The ATM or POS terminal encrypts the PIN using the ZPK.
+    Transmission: The encrypted PIN is sent over the network to the bank or processing center.
+
+During Transmission:
+
+    The encrypted PIN is transmitted securely over the network.
+
+At the Destination (e.g., Bank or Processing Center):
+
+    Reception: The bank or processing center receives the encrypted PIN.
+    Decryption: The bank or processing center uses the same ZPK to decrypt the PIN.
+    Verification: The decrypted PIN is then verified against the user's account information.
+
+Secure Distribution of the ZPK:
+
+    Before this process, the ZPK must be securely distributed to both the source (ATM or POS terminal) and the destination (bank or processing center).
+    The ZPK is encrypted using the ZMK when being transmitted to ensure its security.
+    Once received, the ZPK is decrypted using the ZMK and stored securely for use in encrypting and decrypting PINs.
+
+Summary:
+
+    Source and Destination: Both use the same ZPK for encrypting and decrypting the data.
+    ZMK's Role: Ensures the ZPK is securely transmitted and distributed between the source and destination.
+
+This ensures that the PIN remains secure throughout the entire process, from entry to verification.

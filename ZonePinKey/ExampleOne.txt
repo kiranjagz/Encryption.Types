@@ -1,0 +1,48 @@
+﻿Yes, that's a good way to understand it. Here's a bit more detail to clarify:
+
+    Encryption of Data (e.g., PIN):
+        When you need to encrypt sensitive data like a PIN, you use the ZPK.
+        The ZPK is the key that directly encrypts the PIN to protect it during transmission or storage.
+
+    Protection of Keys (e.g., ZPK):
+        The ZMK is used to protect the ZPK itself.
+        When the ZPK needs to be sent from one system to another (e.g., from a central security system to an ATM), it is encrypted using the ZMK.
+        This ensures that if someone intercepts the ZPK during transmission, they cannot read it without the ZMK.
+
+So, in practice:
+
+    Data (PIN) is encrypted with the ZPK to keep the data secure.
+    The ZPK is encrypted with the ZMK to keep the ZPK secure when it is transferred between systems.
+
+This layered approach ensures that both the sensitive data and the keys used to protect that data are kept secure.
+
+===========
+
+The system that reads the data uses the ZPK to decrypt the data (e.g., the PIN). Here's a step-by-step process to clarify:
+
+    Encryption at the Source (e.g., ATM or POS Terminal):
+        The PIN entered by the user is encrypted using the ZPK at the ATM or POS terminal.
+
+    Transmission of Encrypted Data:
+        The encrypted PIN is sent over the network to the bank or the processing center.
+
+    Decryption at the Destination:
+        The bank or processing center receives the encrypted PIN.
+        They use the ZPK to decrypt the PIN and verify it.
+
+Now, regarding the ZMK:
+
+    Distribution of the ZPK:
+        When the ZPK needs to be distributed from a central security system to an ATM or POS terminal, it is encrypted using the ZMK.
+        This encrypted ZPK is then sent to the ATM or POS terminal.
+
+    Receiving System:
+        The ATM or POS terminal receives the encrypted ZPK.
+        It uses the ZMK to decrypt and retrieve the ZPK.
+
+So, the ZMK's role is primarily in the secure transmission and distribution of the ZPK. Once the ZPK is securely received and decrypted using the ZMK, it is then used for encrypting and decrypting the actual data (like the PIN).
+
+In summary:
+
+    ZPK is used for encrypting and decrypting the PIN.
+    ZMK is used for securely transmitting and decrypting the ZPK itself.

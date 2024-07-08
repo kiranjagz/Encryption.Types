@@ -1,0 +1,18 @@
+﻿ZPK (Zone PIN Key)
+
+    Purpose: Used for encrypting and decrypting PINs (Personal Identification Numbers).
+    Use Case: When you enter your PIN at an ATM or a POS terminal, the PIN is encrypted using the ZPK before it is sent over the network to the bank for verification.
+    Key Role: Ensures the PIN is secure and not readable by anyone who might intercept it.
+
+ZMK (Zone Master Key)
+
+    Purpose: Used to encrypt other keys (like ZPKs) when they are transmitted between devices.
+    Use Case: When a new ZPK needs to be sent from a central security system to an ATM, it is encrypted with a ZMK to keep it secure during transmission.
+    Key Role: Protects the keys that are used to protect PINs and other sensitive data, ensuring they are securely transferred between systems.
+
+In simple terms:
+
+    ZPK is like a lock that protects your PIN.
+    ZMK is like a lock that protects the key (ZPK) itself during transport.
+
+This layered security ensures that both your PIN and the keys used to protect it remain safe.
