@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -9,19 +9,15 @@ class PinBlockConversion
         string incomingPinBlock = "63E831C7FFC8D618";
         string incomingZPK = "CA97081C9AE88BE0251AFF0AA5654A14";
 
+        string decryptedPinBlock = DecryptPinBlock(incomingPinBlock, incomingZPK);
+        Console.WriteLine("Incoming Clear PINBlock: " + decryptedPinBlock);
 
-
-        //string convertedPinBlock = ConvertPinBlock(decryptedPinBlock, "ISO-0");
-        var convertedPinBlock = "042278FFFFFFFFFF";
+        string convertedPinBlock = ConvertPinBlock(decryptedPinBlock, "ISO-0");
         Console.WriteLine("Outgoing Clear PINBlock: " + convertedPinBlock);
 
         string outgoingZPK = incomingZPK; // In this example, we're using the same ZPK for simplicity
         string encryptedPinBlock = EncryptPinBlock(convertedPinBlock, outgoingZPK);
         Console.WriteLine("Outgoing PINBlock: " + encryptedPinBlock);
-
-
-        string decryptedPinBlock = DecryptPinBlock(encryptedPinBlock, incomingZPK);
-        Console.WriteLine("Incoming Clear PINBlock: " + decryptedPinBlock);
     }
 
     private static string DecryptPinBlock(string pinBlock, string zpk)
